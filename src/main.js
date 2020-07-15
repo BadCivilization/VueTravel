@@ -10,6 +10,7 @@ import fastClick from 'fastclick'
 import 'style/iconfont.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
+import 'style/initialize.css'
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
