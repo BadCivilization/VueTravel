@@ -1,7 +1,7 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cityslist='cityslist'></city-search>
     <city-list :hotcityslist='hotcityslist' :cityslist='cityslist' :choseword='choseword'></city-list>
     <alpha-bet :cityslist='cityslist' @listroll='getmessage'></alpha-bet>
   </div>
