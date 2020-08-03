@@ -13,61 +13,17 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-warrper">
-            <div class="button">重庆</div>
+          <div class="button-warrper" v-for='item in hotcityslist' :key='item.id'>
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
 
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-        </div>
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-        </div>
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-          <div class="item border-bottom">重庆</div>
-        </div>
+      <div class="area" v-for='(item, key) of cityslist' :key='key'>
+          <div class="title border-topbottom">{{key}}</div>
+            <div class="item-list">
+              <div class="item border-bottom" v-for='cityitem in item' :key='cityitem.id'>{{cityitem.name}}</div>
+          </div>
       </div>
     </div>
   </div>
@@ -79,6 +35,10 @@ export default {
   name: 'CityList',
   mounted: function () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  props: {
+    hotcityslist: Array,
+    cityslist: Object
   }
 }
 </script>
