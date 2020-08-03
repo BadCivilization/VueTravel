@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotcityslist='hotcityslist' :cityslist='cityslist'></city-list>
-    <alpha-bet :cityslist='cityslist'></alpha-bet>
+    <city-list :hotcityslist='hotcityslist' :cityslist='cityslist' :choseword='choseword'></city-list>
+    <alpha-bet :cityslist='cityslist' @listroll='getmessage'></alpha-bet>
   </div>
 
 </template>
@@ -26,7 +26,8 @@ export default {
   data: function () {
     return {
       hotcityslist: [],
-      cityslist: {}
+      cityslist: {},
+      choseword: ''
     }
   },
   mounted: function () {
@@ -41,6 +42,9 @@ export default {
       }, function (errr) {
         console.log(errr)
       })
+    },
+    getmessage: function (data) {
+      this.choseword = data
     }
   }
 }

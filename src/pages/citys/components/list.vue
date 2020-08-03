@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="area" v-for='(item, key) of cityslist' :key='key'>
+      <div class="area" v-for='(item, key) of cityslist' :key='key' :ref='key'>
           <div class="title border-topbottom">{{key}}</div>
             <div class="item-list">
               <div class="item border-bottom" v-for='cityitem in item' :key='cityitem.id'>{{cityitem.name}}</div>
@@ -38,7 +38,16 @@ export default {
   },
   props: {
     hotcityslist: Array,
-    cityslist: Object
+    cityslist: Object,
+    choseword: String
+  },
+  watch: {
+    choseword: function () {
+      if (this.choseword) {
+        const element = this.$refs[this.choseword][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
