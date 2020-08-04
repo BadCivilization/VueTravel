@@ -5,7 +5,7 @@
     </div>
     <div class="header-input iconfont">&#xe6ac;输入城市/景点/游玩主题</div>
     <router-link to='/City'>
-        <div class="header-right">城市
+        <div class="header-right">{{this.city}}
             <span class="iconfont arrow-header">&#xe62a;</span>
         </div>
     </router-link>
@@ -13,13 +13,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HeaderHome'
+  name: 'HeaderHome',
+  computed: {
+    ...mapState({
+      city: 'city'
+    })
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
     @import '~@/assets/styles/var.styl'
+    @import '~@/assets/styles/mixin.styl'
     .header{
         background-color: $bgColor;
         color: #ffffff;
@@ -47,7 +54,8 @@ export default {
         color: #ccc;
     }
     .header-right{
-        width: 1.24rem;
+        min-width: 1.04rem;
+        padding 0 .1rem
         float: right;
         text-align: center;
         color: #fff;

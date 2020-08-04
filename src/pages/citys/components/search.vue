@@ -8,7 +8,7 @@
     </div>
     <div class="search-content" ref="wrapper" v-show='keyword'>
       <ul>
-        <li v-for='item of list' :key="item.id" class="search-item border-bottom">{{item.name}}</li>
+        <li v-for='item of list' :key="item.id" class="search-item border-bottom" @click='changecity(item.name)'>{{item.name}}</li>
         <li class="search-item border-bottom" v-show="!list.length">没有找到想要的城市</li>
       </ul>
     </div>
@@ -54,6 +54,12 @@ export default {
   },
   mounted: function () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  methods: {
+    changecity: function (cityname) {
+      this.$store.dispatch('changeCityName', cityname)
+      this.$router.push('/')
+    }
   }
 }
 </script>
