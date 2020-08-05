@@ -37,6 +37,13 @@ export default {
   mounted: function () {
     this.scroll = new BScroll(this.$refs.wrapper)
   },
+  activated: function () {
+    if (this.scroll != null) {
+      this.scroll.refresh()
+    }
+  },
+  deactivated: function () {
+  },
   props: {
     hotcityslist: Array,
     cityslist: Object,
