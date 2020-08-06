@@ -1,5 +1,5 @@
 <template>
-  <swiper :options="swiperOptions">
+  <swiper :options="swiperOptions" v-if="swiperList.length">
     <swiper-slide v-for="slide in swiperList" :key="slide.id">
         <img :src="slide.imgUrl" alt="" class="swiper-img">
     </swiper-slide>
@@ -18,10 +18,16 @@ export default {
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination',
-          clickable: true
+          clickable: true,
+          type: 'bullets'
         },
-        speed: 300,
-        autoplay: true
+        speed: 500,
+        autoplay: {
+          disableOnInteraction: false,
+          delay: 1000
+        },
+        loop: true,
+        observer: true
       }
     }
   }
