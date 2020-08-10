@@ -6,8 +6,8 @@
                 <span class="item-title-icon iconfont"></span>
                 {{item.title}}
             </div>
-            <div v-if="item.content" class="item-content">
-                <detail-list :list='item.content'></detail-list>
+            <div v-if="item.children" class="item-content">
+                <detail-list :list='item.children'></detail-list>
             </div>
         </div>
     </div>
