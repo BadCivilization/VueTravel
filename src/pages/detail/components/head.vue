@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     windowScroll: function () {
-      const sTop = document.documentElement.scrollTop
+      const sTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
       if (sTop > 0) {
         let opa = sTop / 100
         opa = opa > 1 ? 1 : opa
@@ -40,10 +40,10 @@ export default {
       }
     }
   },
-  activated: function () {
+  mounted: function () {
     window.addEventListener('scroll', this.windowScroll)
   },
-  deactivated: function () {
+  destroyed: function () {
     window.removeEventListener('scroll', this.windowScroll)
   }
 }
