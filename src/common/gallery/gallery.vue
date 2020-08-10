@@ -45,6 +45,7 @@ export default {
 
 <style scoped lang="stylus">
     .container{
+        z-index 3
         display flex
         flex-direction column
         justify-content center
