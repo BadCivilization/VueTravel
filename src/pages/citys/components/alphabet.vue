@@ -1,7 +1,7 @@
 <template>
     <ul class="word-list">
         <li class="item" v-for='item in letters' :key='item' @click='handleClick'
-        @touchstart='handleTouchStart'
+        @touchstart.prevent='handleTouchStart'
         @touchmove='handleTouchMove'
         @touchend='handleTouchEnd'
         :ref='item'>{{item}}</li>
@@ -65,6 +65,7 @@ export default {
 <style scoped lang="stylus">
     @import '~@/assets/styles/var.styl'
     .word-list{
+        position fixed
         display: flex;
         flex-direction: column;
         justify-content: center;

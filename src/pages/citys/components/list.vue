@@ -40,6 +40,7 @@ export default {
   activated: function () {
     if (this.scroll != null) {
       this.scroll.refresh()
+      this.scroll.options.click = true
     }
   },
   deactivated: function () {
